@@ -36,28 +36,6 @@ function colorBlink(selector) {
     });
 }
 
-// INICIA EL JUEGO
-function initGame() {
-
-  colorBlink('h1.main-titulo');
-
-  $('.btn-reinicio').click(function() {
-    if ($(this).text() === 'Reiniciar') {
-      location.reload(true);
-    }
-    checkBoard();
-    $(this).text('Reiniciar');
-    $('#timer').startTimer({
-      onComplete: endGame
-    })
-  });
-}
-
-// PREPARA EL JUEGO
-$(function() {
-  initGame();
-});
-
 //GENERAR NUMEROS ALEATORIOS
 function getRandomInt(min, max) {
   min = Math.ceil(min);
@@ -397,3 +375,25 @@ function endGame() {
   $('div.score, div.moves, div.panel-score').width('100%');
 
 }
+
+// INICIA EL JUEGO
+function initGame() {
+
+  colorBlink('h1.main-titulo');
+
+  $('.btn-reinicio').click(function() {
+    if ($(this).text() === 'Reiniciar') {
+      location.reload(true);
+    }
+    checkBoard();
+    $(this).text('Reiniciar');
+    $('#timer').startTimer({
+      onComplete: endGame
+    })
+  });
+}
+
+// PREPARA EL JUEGO
+$(function() {
+  initGame();
+});
